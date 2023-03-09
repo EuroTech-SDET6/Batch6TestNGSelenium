@@ -14,9 +14,10 @@ public class GetTitleAndGetUrl {
         driver.get("https://www.facebook.com");
 
 
+
         String  actualTitle = driver.getTitle();
 
-        String expectedTitle ="Facebook – log in or sign up";
+        String expectedTitle ="Facebook - log in or sign up";
 
         if(expectedTitle.equals(actualTitle)){
             System.out.println("Passed");
