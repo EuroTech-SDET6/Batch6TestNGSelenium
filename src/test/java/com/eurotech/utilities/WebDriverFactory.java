@@ -30,6 +30,7 @@ public class WebDriverFactory {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
+
         }
         return driver;
     }

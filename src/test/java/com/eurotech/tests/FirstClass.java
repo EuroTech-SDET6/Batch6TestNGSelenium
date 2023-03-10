@@ -1,6 +1,8 @@
 package com.eurotech.tests;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class FirstClass {
 
@@ -11,6 +13,9 @@ public class FirstClass {
         Faker faker = new Faker();
         System.out.println(faker.name().firstName());
         System.out.println(faker.animal().name());
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.google.com");
 
     }
 
