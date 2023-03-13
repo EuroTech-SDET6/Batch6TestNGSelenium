@@ -4,6 +4,7 @@ package com.eurotech.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.Locale;
@@ -23,6 +24,8 @@ public class WebDriverFactory {
 
         switch (browserType.toLowerCase()){
             case "chrome":
+                ChromeOptions co =new ChromeOptions();
+                co.addArguments("--remote-allow-origins=*");
                 WebDriverManager.chromedriver().setup();
                 driver= new ChromeDriver();
                 break;
