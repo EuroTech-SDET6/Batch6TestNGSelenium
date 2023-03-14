@@ -16,7 +16,7 @@ public class NameLocatorTest {
         driver.findElement(By.name("user[login]")).sendKeys(faker.internet().emailAddress());
         driver.findElement(By.name("user[password]")).sendKeys(faker.internet().password());
 
-
+        driver.findElement(By.name("commit")).click();
 
         Thread.sleep(2000);
         driver.close();
