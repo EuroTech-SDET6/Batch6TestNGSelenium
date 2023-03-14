@@ -15,7 +15,10 @@ public class TagNameLocator {
         driver.findElement(By.id("rcc-confirm-button")).click();
         Thread.sleep(1000);
         driver.findElement(By.name("email")).sendKeys("eurotech@gmail.com");
-        driver.findElement(By.name("password")).sendKeys("Test12345!");
+      //  driver.findElement(By.xpath("/html/body/div/section/form/div[2]/input")).sendKeys("Test12345!");
+        //                           /html/body/div/section/form/div[2]/input
+
+     //   driver.findElement(By.name("password")).sendKeys("Test12345!");
 
         driver.findElement(By.id("loginpage-form-btn")).click();
 
