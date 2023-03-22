@@ -58,8 +58,10 @@ public class SelectDropdownTest {
         // select Indigo by value and verify it has been selected
         select.selectByValue("8");
         Thread.sleep(1000);
-        Assert.assertTrue("Indigo".equals(select.getFirstSelectedOption().getText()), "verifying Indigo is selected");
-
+//        Assert.assertTrue("Indigo".equals(select.getFirstSelectedOption().getText()), "verifying Indigo is selected");
+        String expected = "Indigo";
+        String actual = select.getFirstSelectedOption().getText();
+        Assert.assertTrue(actual.equals(expected));
     }
 
     @AfterMethod
