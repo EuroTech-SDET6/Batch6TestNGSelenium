@@ -1,4 +1,4 @@
-package com.eurotech.tests;
+package com.eurotech.tests.day1_intro;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
