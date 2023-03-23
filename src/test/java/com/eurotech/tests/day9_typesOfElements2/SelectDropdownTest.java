@@ -30,9 +30,11 @@ public class SelectDropdownTest {
         Select select = new Select(colorDropdown);
         // verify there are 11 colors in this dropdown
         // print all the colors
+
         List<WebElement> colorOptions = select.getOptions();
         int expectedSize = 11;
         int actualSize = colorOptions.size();
+
 
         Assert.assertEquals(actualSize, expectedSize, "verifying there are '" + expectedSize + "' colors");
         
