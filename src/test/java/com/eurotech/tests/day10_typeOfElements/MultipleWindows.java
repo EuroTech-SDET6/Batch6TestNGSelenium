@@ -61,7 +61,7 @@ public class MultipleWindows {
 
         Set<String> windowHandles = driver.getWindowHandles();
         for (String tab : windowHandles) {
-            driver.switchTo().window(tab);
+            driver.switchTo().window(tab); //
             if(driver.getTitle().equals("New Window")){
                 break;
             }
