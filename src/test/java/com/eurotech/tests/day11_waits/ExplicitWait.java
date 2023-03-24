@@ -57,6 +57,7 @@ public class ExplicitWait {
         enableBtn.click();
 
         WebElement inputBox = driver.findElement(By.cssSelector("input[type=text]"));
+
         WebDriverWait wait = new WebDriverWait(driver,15);
 
         wait.until(ExpectedConditions.elementToBeClickable(inputBox));
