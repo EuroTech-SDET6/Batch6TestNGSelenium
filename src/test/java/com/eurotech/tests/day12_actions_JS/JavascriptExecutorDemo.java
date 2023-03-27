@@ -47,6 +47,29 @@ public class JavascriptExecutorDemo {
 
     }
 
+    @Test
+    public void scrollDownAndUp() throws InterruptedException {
+
+        driver.get("https://www.amazon.co.uk/");
+        driver.findElement(By.id("sp-cc-accept")).click();
+
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        for (int i = 0; i <10 ; i++) {
+            Thread.sleep(1000);
+            jse.executeScript("window.scrollBy(0,500)");
+        }
+
+        for (int i = 0; i <10 ; i++) {
+            Thread.sleep(1000);
+            jse.executeScript("window.scrollBy(0,-500)");
+        }
+
+    }
+
+    @Test
+    public void scrollToElement() {
+
+    }
 
     @AfterMethod
     public void tearDown() throws InterruptedException {
