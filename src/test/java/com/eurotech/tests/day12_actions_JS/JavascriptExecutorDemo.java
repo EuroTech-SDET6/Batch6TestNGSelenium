@@ -69,6 +69,14 @@ public class JavascriptExecutorDemo {
     @Test
     public void scrollToElement() {
 
+        driver.get("https://www.amazon.co.uk/");
+        driver.findElement(By.id("sp-cc-accept")).click();
+        WebElement turkey = driver.findElement(By.linkText("Turkey"));
+
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].scrollIntoView(true);", turkey);
+        executor.executeScript("arguments[0].click();", turkey);
+
     }
 
     @AfterMethod
