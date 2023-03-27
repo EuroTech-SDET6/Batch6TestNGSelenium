@@ -1,5 +1,6 @@
 package com.eurotech.tests.day12_actions_JS;
 
+import com.beust.ah.A;
 import com.eurotech.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,6 +34,8 @@ public class ActionTest {
 
         Actions actions = new Actions(driver);
         actions.moveToElement(img1).perform();
+
+
         //perform() --> perform the action complete the action
         //moveToElement() -- > move your mouse to web element (hover over)
 
@@ -40,6 +43,49 @@ public class ActionTest {
         System.out.println("view_profile.getText() = " + view_profile.getText());
 
         Assert.assertEquals(view_profile.getText(),"View profile");
+
+    }
+
+    
+
+    @Test
+    public void dragAndDrop() {
+
+        driver.get("https://demoqa.com/droppable");
+
+        WebElement source = driver.findElement(By.cssSelector("#draggable"));
+        WebElement target = driver.findElement(By.cssSelector("#droppable"));
+
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(source,target).perform();
+
+
+        WebElement droppedMessage = driver.findElement(By.xpath("//p[text()='Dropped!']"));
+        //verify 1 way
+     //   Assert.assertTrue(droppedMessage.isDisplayed());
+
+        //verify 2 way
+        Assert.assertEquals(droppedMessage.getText(),"Dropped!","Verify that element has dropped");
+
+
+        
+    }
+
+    @Test
+    public void DragAndDrop2() {
+
+        driver.get("https://demoqa.com/droppable");
+
+        WebElement source = driver.findElement(By.cssSelector("#draggable"));
+        WebElement target = driver.findElement(By.cssSelector("#droppable"));
+
+        Actions actions = new Actions(driver);
+        actions.moveToElement(source).clickAndHold().moveToElement(target).pause(3000).release().perform();
+
+
+        WebElement droppedMessage = driver.findElement(By.xpath("//p[text()='Dropped!']"));
+        //verify 1 way
+        Assert.assertTrue(droppedMessage.isDisplayed());
 
 
     }
