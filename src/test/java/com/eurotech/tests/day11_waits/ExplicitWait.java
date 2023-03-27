@@ -42,6 +42,9 @@ public class ExplicitWait {
         WebElement textElement = driver.findElement(By.xpath("//h4[text()='Hello World!']"));
         wait.until(ExpectedConditions.visibilityOf(textElement));
 
+
+
+
         String expectedText ="Hello World!";
 
         Assert.assertEquals(textElement.getText(),expectedText);
