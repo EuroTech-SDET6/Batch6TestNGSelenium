@@ -29,6 +29,7 @@ public class DriverTests {
         WebDriver driver = Driver.get();
         driver.get("https://www.amazon.com/");
         Thread.sleep(1000);
+        Driver.closeDriver();
     }
 
 
@@ -37,6 +38,7 @@ public class DriverTests {
 //        WebDriver driver = WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
         WebDriver driver = Driver.get();
         driver.get("https://www.google.com/");
+        Driver.closeDriver();
     }
 
 }
