@@ -67,5 +67,58 @@ public class DashboardTest extends TestBase {
     @Test
     public void navigateMenu() {
 
+
+        /*
+        Go to http://www.eurotech.study/login
+        Login with teacher credentials
+        Navigate to All Posts menu and verify url is http://eurotech.study/posts
+        Navigate to Developers menu and verify url is http://eurotech.study/profiles
+
+         */
+
+        driver.get(ConfigurationReader.get("url"));
+        loginPage.loginAsTeacher();
+
+        String expectedText ="Welcome Teacher";
+        Assert.assertEquals(dashboardPage.welcomeMessage.getText(),expectedText,"Verify that log in successfully");
+
+
+        dashboardPage.allPosts.click();
+        Assert.assertEquals(driver.getCurrentUrl(),"http://eurotech.study/posts");
+
+        dashboardPage.developers.click();
+        Assert.assertEquals(driver.getCurrentUrl(),"http://eurotech.study/profiles");
+
+
+    }
+
+    @Test
+    public void navigate2() {
+
+        driver.get(ConfigurationReader.get("url"));
+        loginPage.loginAsTeacher();
+
+        String expectedText ="Welcome Teacher";
+        Assert.assertEquals(dashboardPage.welcomeMessage.getText(),expectedText,"Verify that log in successfully");
+
+        dashboardPage.navigateMenu("All Posts");
+        Assert.assertEquals(driver.getCurrentUrl(),"http://eurotech.study/posts");
+
+        dashboardPage.navigateMenu("Developers");
+        Assert.assertEquals(driver.getCurrentUrl(),"http://eurotech.study/profiles");
+    }
+
+    @Test
+    public void navigate3() {
+        driver.get(ConfigurationReader.get("url"));
+        loginPage.loginAsTeacher();
+
+        String expectedText ="Welcome Teacher";
+        Assert.assertEquals(dashboardPage.welcomeMessage.getText(),expectedText,"Verify that log in successfully");
+
+        BrowserUtils.hover(dashboardPage.myAccount);
+        dashboardPage.navigateSubMenu("My Posts");
+
+
     }
 }
