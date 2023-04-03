@@ -1,6 +1,8 @@
 package com.eurotech.tests.day12_actions_JS;
 
 import com.beust.ah.A;
+import com.eurotech.utilities.BrowserUtils;
+import com.eurotech.utilities.Driver;
 import com.eurotech.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -46,7 +48,20 @@ public class ActionTest {
 
     }
 
-    
+    @Test
+    public void test2BrowserUtils() {
+        Driver.get().get("https://the-internet.herokuapp.com/hovers");
+
+        WebElement img1 = Driver.get().findElement(By.xpath("(//img)[2]"));
+
+        BrowserUtils.hover(img1);
+
+        WebElement view_profile = Driver.get().findElement(By.linkText("View profile"));
+        System.out.println("view_profile.getText() = " + view_profile.getText());
+
+        Assert.assertEquals(view_profile.getText(),"View profile");
+
+    }
 
     @Test
     public void dragAndDrop() {
