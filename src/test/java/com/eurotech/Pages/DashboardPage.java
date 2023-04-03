@@ -36,5 +36,4 @@ public class DashboardPage extends BasePage{
         Driver.get().findElement(By.xpath("//span[text()='"+menuName+"']")).click();
     }
 
-
 }
