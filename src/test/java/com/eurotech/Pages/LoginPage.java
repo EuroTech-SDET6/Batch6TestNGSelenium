@@ -10,12 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 
 
-    public LoginPage(){
-        PageFactory.initElements(Driver.get(), this);
-    }
+
 
     @FindBy(id = "rcc-confirm-button")
     public WebElement iUnderstandButton;
