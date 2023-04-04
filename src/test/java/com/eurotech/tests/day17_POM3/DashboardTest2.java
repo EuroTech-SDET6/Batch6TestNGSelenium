@@ -2,6 +2,7 @@ package com.eurotech.tests.day17_POM3;
 
 import com.eurotech.Pages.DashboardPage;
 import com.eurotech.Pages.LoginPage;
+import com.eurotech.Pages.PostPage;
 import com.eurotech.tests.TestBase;
 import com.eurotech.utilities.BrowserUtils;
 import com.eurotech.utilities.ConfigurationReader;
@@ -17,6 +18,7 @@ public class DashboardTest2 extends TestBase {
 
     LoginPage loginPage = new LoginPage();
     DashboardPage dashboardPage = new DashboardPage();
+    PostPage postPage = new PostPage();
 
     @Test
     public void verifyList() {
@@ -63,6 +65,62 @@ public class DashboardTest2 extends TestBase {
 
         //3 way
         Assert.assertEquals(BrowserUtils.getElementsText(dashboardPage.dashboardList),expectedList);
+
+    }
+
+    @Test
+    public void logout() {
+
+        /**
+         Go to http://www.eurotech.study/
+         Login with teacher credentials
+         Navigate to My Account and navigate to My Posts and verify that submit button is true and visible then
+         Navigate to Log Out and verify that log out successfully
+         */
+
+        driver.get(ConfigurationReader.get("url"));
+        loginPage.loginAsTeacher();
+        String expectedText= "Welcome Teacher";
+        String actualText = dashboardPage.welcomeMessage.getText();
+        Assert.assertTrue(actualText.contains(expectedText));
+
+        //1 way navigate to My Account
+      //  dashboardPage.navigateMenu("My Account");
+
+        //2 way navigate to My Account
+        BrowserUtils.hover(dashboardPage.myAccount);
+
+        dashboardPage.navigateSubMenu("My Posts");
+
+        //1 way for verification
+        BrowserUtils.verifyElementDisplayed(postPage.submitBtn);
+
+
+        // 2 way for verification
+        BrowserUtils.waitForVisibility(postPage.submitBtn,10);
+        Assert.assertTrue(postPage.submitBtn.isDisplayed());
+
+
+        //1 way
+        String expectedTextSubmitBtn = "Submit";
+        String actualTextSubmitBtn= postPage.submitBtn.getAttribute("value");
+
+        Assert.assertEquals(actualTextSubmitBtn,expectedTextSubmitBtn);
+
+
+        //2 way for text
+        Assert.assertEquals(postPage.submitBtn.getAttribute("value"),"Submit");
+
+        BrowserUtils.hover(dashboardPage.myAccount);
+        dashboardPage.navigateSubMenu("Logout");
+
+
+        Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+
+
+
+
+
 
 
 
