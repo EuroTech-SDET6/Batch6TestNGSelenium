@@ -27,6 +27,9 @@ public class DashboardPage extends BasePage{
     @FindBy(linkText = "My Account")
     public WebElement myAccount;
 
+    @FindBy(css = ".btn.btn-light")
+    public List<WebElement> dashboardList;
+
 
     public void navigateMenu(String menuName){
         Driver.get().findElement(By.xpath("//*[text()='"+menuName+"']")).click();

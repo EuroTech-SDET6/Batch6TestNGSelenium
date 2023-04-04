@@ -54,16 +54,6 @@ public class LoginPage extends BasePage{
 
 
 
-
-
-
-
-
-
-
-
-
-
     public void login(String username, String password){
         iUnderstandButton.click();
         usernameInput.sendKeys(username);
