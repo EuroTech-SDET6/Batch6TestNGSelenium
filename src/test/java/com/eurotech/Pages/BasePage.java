@@ -20,5 +20,4 @@ public abstract class BasePage {
     @FindBy(xpath = "//span[text()='Sign in with Google']")
     public WebElement signWithGoogle;
 
-
 }
