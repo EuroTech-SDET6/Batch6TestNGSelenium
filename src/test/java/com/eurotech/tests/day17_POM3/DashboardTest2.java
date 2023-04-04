@@ -118,6 +118,34 @@ public class DashboardTest2 extends TestBase {
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
 
 
+    }
+
+    @Test
+    public void postComment() {
+        /*
+         Go to http://www.eurotech.study/
+         Login with teacher credentials
+         Navigate to My Account and navigate to My Posts
+         Fill the title and post area
+         Click submit button
+         Verify that post saved successfully
+         */
+
+
+        //10 min
+        driver.get(ConfigurationReader.get("url"));
+        loginPage.loginAsTeacher();
+        BrowserUtils.hover(dashboardPage.myAccount);
+        dashboardPage.navigateSubMenu("My Posts");
+
+//        postPage.titleInput.sendKeys("Page Object Model");
+//        postPage.postInput.sendKeys("POM is best applicable for the applications which contain multiple pages. Each of which has fields which can be uniquely referenced with respect to the page. ");
+//
+//        postPage.submitBtn.click();
+        postPage.postComment();
+        Assert.assertEquals(postPage.postCreatedMessage.getText(),"Post Created");
+
+
 
 
 
