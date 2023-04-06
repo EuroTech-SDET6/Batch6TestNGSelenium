@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 
 public class WrongUsernameTest extends TestBase {
 
-    LoginPage loginPage = new LoginPage();
+    LoginPage loginPage;
 
     @Test
     public void wrongUsername() {
+        loginPage = new LoginPage();
         //name of the test
         extentLogger = report.createTest("Wrong Username Test");
 
@@ -46,6 +47,8 @@ public class WrongUsernameTest extends TestBase {
         // navigate 'http://eurotech.study/login'
         // enter valid username but invalid password
         // validate user cannot login
+
+        loginPage = new LoginPage();
 
         //name of the test
         extentLogger = report.createTest("Wrong Password Test");
