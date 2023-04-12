@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 public class DDFLoginTest extends TestBase {
 
 
+
     @DataProvider
     public Object[][] userData(){
         ExcelUtil testData = new ExcelUtil("src/test/resources/EurotechTest.xlsx", "Test Data");
@@ -55,9 +56,11 @@ public class DDFLoginTest extends TestBase {
         // Task - Homework
         // validate company value is as given in the Excel file
 
+        extentLogger.info("Verify that "+ name+ "is working at "+company);
+        Assert.assertEquals(dashboardPage.getCompanyName(title),company);
+
+
         extentLogger.pass("Passed");
     }
-
-
 
 }
